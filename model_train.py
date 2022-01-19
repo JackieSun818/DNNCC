@@ -105,10 +105,11 @@ def model_train(BATCH_SIZE, ATT_SIZE, FUN_SIZE):
                 xr_m = 0
     xr_c = x3  # 708*6576
 
-    x4 = np.loadtxt('../dataset/PRI.txt')
-    x5 = np.loadtxt('../dataset/PPI.txt')
-    x6 = np.loadtxt('../dataset/PDI.txt')
-    sp = np.loadtxt('../dataset/Similarity_Matrix_Proteins.txt')
+    x4 = np.loadtxt('dataset/PRI.txt')
+    x5 = np.loadtxt('dataset/PPI.txt')
+    x6 = np.loadtxt('dataset/PDI.txt')
+    xp = np.loadtxt('protein sequence coding module/datasets/DTINet/protein_sequence.csv', delimiter=',')
+    sp = cos_similarity(xp)
     xp_m = sp.dot(np.hstack((x4, x5)))
     for i in range(xp_m.shape[0]):
         for j in range(xp_m.shape[1]):
@@ -116,8 +117,8 @@ def model_train(BATCH_SIZE, ATT_SIZE, FUN_SIZE):
                 xp_m = 0
     xp_c = x6  # 1512*6576
 
-    index_0 = np.loadtxt('../result/DTI_index_0.txt')
-    index_1 = np.loadtxt('../result/DTI_index_1.txt')
+    index_0 = np.loadtxt('result/DTI_index_0.txt')
+    index_1 = np.loadtxt('result/DTI_index_1.txt')
 
     print('初始化网络')
 
