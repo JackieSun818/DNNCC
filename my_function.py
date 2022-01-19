@@ -183,3 +183,15 @@ def get_knn(s, k):
         for j in range(k):
             knn_s[i, int(sort_s[j])] = s[i, int(sort_s[j])]
     return knn_s
+
+def cos_similarity(A):
+    B = np.zeros((A.shape[0], A.shape[0]))
+    for i in tqdm(range(B.shape[0])):
+        for j in range(B.shape[1]):
+            fenzi = np.sum(np.multiply(A[i], A[j]))
+            fenmu = np.sum(np.multiply(A[i], A[i]))*np.sum(np.multiply(A[j], A[j]))
+            if fenmu != 0:
+                B[i, j] = fenzi/np.sqrt(fenmu)
+            else:
+                B[i, j] = 0
+    return B
