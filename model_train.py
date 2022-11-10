@@ -108,7 +108,8 @@ def model_train(BATCH_SIZE, ATT_SIZE, FUN_SIZE):
     x4 = np.loadtxt('dataset/PRI.txt')
     x5 = np.loadtxt('dataset/PPI.txt')
     x6 = np.loadtxt('dataset/PDI.txt')
-    xp = np.loadtxt('protein sequence coding module/datasets/DTINet/protein_sequence.csv', delimiter=',')
+    xp = np.loadtxt('dataset/protein_vector.txt')
+    xp = xp / np.max(xp)
     sp = cos_similarity(xp)
     xp_m = sp.dot(np.hstack((x4, x5)))
     for i in range(xp_m.shape[0]):
