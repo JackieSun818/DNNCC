@@ -2,7 +2,7 @@ import random
 
 import numpy as np
 
-fold = 5
+fold = 10
 m = 708
 n = 1512
 A = np.loadtxt("dataset/mat_drug_protein.txt")   # A矩阵  行是药物 列是蛋白质
