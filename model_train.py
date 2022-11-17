@@ -7,7 +7,7 @@ import torch.nn.functional as F
 # BATCH_SIZE = 2048
 EPOCH = 100
 LR = 0.0001
-FOLD = 5
+FOLD = 10
 CUDA_AVAILABLE = 1
 DRUG = 708
 PROTEIN = 1512
